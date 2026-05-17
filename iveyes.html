@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ivEyes — Smart Glasses Tracking Assistant | Hexaros</title>
+<meta name="description" content="ivEyes è l'assistente indossabile per la farmacia ospedaliera: smart glasses AR, tre modalità operative, tracciabilità completa dei processi di allestimento.">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css?v=2">
+<link rel="stylesheet" href="css/product.css?v=2">
+</head>
+<body class="dark">
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Navigazione principale">
+      <a class="brand" href="index.html">
+        <svg width="32" height="36" viewBox="0 0 48 54" aria-hidden="true">
+          <polygon points="24,2 44,14 44,38 24,50 4,38 4,14" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="24" cy="26" r="4.5" fill="#E8A44C"/>
+        </svg>
+        <span>Hexaros</span>
+      </a>
+      <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav-azienda">Azienda</a></li>
+        <li><a href="iveyes.html" class="active">ivEyes</a></li>
+        <li><a href="contact.html" data-i18n="nav-contatti">Contatti</a></li>
+        <li><a href="contact.html" class="nav-cta" data-i18n="nav-cta-btn">Richiedi demo</a></li>
+        <li><button class="lang-toggle" aria-label="Cambia lingua / Switch language"><span class="lt-it">IT</span><span class="lt-sep">·</span><span class="lt-en">EN</span></button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PRODUCT HERO ================= -->
+<section class="prod-hero">
+  <div class="wrap">
+    <div class="prod-hero-grid">
+      <div>
+        <div class="prod-logo-block" style="display:flex;align-items:center;gap:12px">
+          <svg width="44" height="44" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" style="border-radius:11px;flex-shrink:0" aria-hidden="true">
+            <rect width="108" height="108" fill="#1A2440"/>
+            <path fill="none" stroke="#F5F1EA" stroke-width="2.1" d="M24.25,48 a12.75,9.35 0 1,0 25.5,0 a12.75,9.35 0 1,0 -25.5,0"/>
+            <path fill="#F5F1EA" d="M33.175,48 a3.825,3.825 0 1,0 7.65,0 a3.825,3.825 0 1,0 -7.65,0"/>
+            <path fill="#F5F1EA" d="M49.75,46.3 h8.5 v3.4 h-8.5 z"/>
+            <path fill="none" stroke="#F5F1EA" stroke-width="2.1" d="M58.25,48 a12.75,9.35 0 1,0 25.5,0 a12.75,9.35 0 1,0 -25.5,0"/>
+            <path fill="#E8A44C" d="M67.175,48 a3.825,3.825 0 1,0 7.65,0 a3.825,3.825 0 1,0 -7.65,0"/>
+          </svg>
+          <span class="parent" data-i18n="ive-parent">Un prodotto Hexaros</span>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <svg width="280" height="60" viewBox="0 0 280 60" aria-label="ivEyes">
+            <g transform="translate(-18.8,-11.6) scale(0.867)">
+              <path fill="none" stroke="currentColor" stroke-width="2.42" d="M24.25,48 a12.75,9.35 0 1,0 25.5,0 a12.75,9.35 0 1,0 -25.5,0"/>
+              <path fill="currentColor" d="M33.175,48 a3.825,3.825 0 1,0 7.65,0 a3.825,3.825 0 1,0 -7.65,0"/>
+              <path fill="currentColor" d="M49.75,46.3 h8.5 v3.4 h-8.5 z"/>
+              <path fill="none" stroke="currentColor" stroke-width="2.42" d="M58.25,48 a12.75,9.35 0 1,0 25.5,0 a12.75,9.35 0 1,0 -25.5,0"/>
+              <path fill="#E8A44C" d="M67.175,48 a3.825,3.825 0 1,0 7.65,0 a3.825,3.825 0 1,0 -7.65,0"/>
+            </g>
+            <text x="66" y="42" font-family="IBM Plex Sans, sans-serif" font-size="38" font-weight="300" fill="currentColor">iv<tspan font-weight="700">Eyes</tspan></text>
+          </svg>
+        </div>
+
+        <h1 data-i18n="ive-hero-h1">L'operatore conduce. <em>Il sistema documenta.</em></h1>
+        <p class="prod-hero-lede" data-i18n="ive-hero-lede">
+          Smart Glasses Tracking Assistant: un visore indossabile che guida, traccia e valida
+          le preparazioni ospedaliere — sotto cappa a flusso laminare e oltre.
+          Flessibile per natura, rigoroso per definizione.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="contact.html" class="btn btn-primary">
+            <span data-i18n="ive-cta-demo">Richiedi una demo</span>
+            <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#modalita" class="btn btn-ghost" data-i18n="ive-cta-modes">Le tre modalità</a>
+        </div>
+
+        <div class="prod-meta-strip">
+          <div class="meta-item">
+            <span class="k" data-i18n="ive-meta-hw-k">Hardware</span>
+            <span class="v">Vuzix</span>
+          </div>
+          <div class="meta-item">
+            <span class="k" data-i18n="ive-meta-if-k">Interfaccia</span>
+            <span class="v" data-i18n="ive-meta-if-v">Vocale, mani libere</span>
+          </div>
+          <div class="meta-item">
+            <span class="k" data-i18n="ive-meta-co-k">Compliance</span>
+            <span class="v">GMP · AIFA</span>
+          </div>
+          <div class="meta-item">
+            <span class="k" data-i18n="ive-meta-in-k">Integrazioni</span>
+            <span class="v">HIS · LIMS · ERP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- visual device panel -->
+      <div class="prod-device-panel" aria-hidden="true">
+        <span class="device-badge">Platform Preview</span>
+        <svg width="100%" height="100%" viewBox="0 0 260 320" preserveAspectRatio="xMidYMid meet">
+          <!-- smart glasses stilizzati -->
+          <g transform="translate(20,80)">
+            <!-- frame -->
+            <rect x="0" y="20" width="220" height="4" fill="currentColor" opacity="0.15"/>
+            <!-- left lens -->
+            <rect x="10" y="10" width="90" height="56" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <!-- right lens -->
+            <rect x="120" y="10" width="90" height="56" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <!-- bridge -->
+            <path d="M 100 28 Q 110 24 120 28" fill="none" stroke="currentColor" stroke-width="2"/>
+            <!-- temples -->
+            <path d="M 10 38 L -12 44" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M 210 38 L 232 44" stroke="currentColor" stroke-width="2" fill="none"/>
+            <!-- AR overlays -->
+            <g opacity="0.7">
+              <rect x="20" y="22" width="36" height="3" fill="#1C7293"/>
+              <rect x="20" y="30" width="28" height="3" fill="#1C7293" opacity="0.6"/>
+              <circle cx="85" cy="38" r="4" fill="#E8A44C"/>
+            </g>
+            <g opacity="0.7">
+              <rect x="130" y="22" width="52" height="3" fill="#1C7293"/>
+              <rect x="130" y="30" width="32" height="3" fill="#1C7293" opacity="0.6"/>
+              <circle cx="195" cy="50" r="4" fill="#E8A44C"/>
+            </g>
+          </g>
+          <!-- info blocks sotto -->
+          <g transform="translate(20,200)" font-family="IBM Plex Mono, monospace" font-size="9" fill="currentColor" opacity="0.7">
+            <text x="0" y="0" data-i18n="ive-prev-task">01 — TASK ACTIVE</text>
+            <rect x="0" y="8" width="220" height="1" fill="currentColor" opacity="0.25"/>
+            <text x="0" y="24" fill="#34A0C0" font-weight="500" opacity="1" data-i18n="ive-prev-prod">Pesa prodotto</text>
+            <text x="0" y="40" data-i18n="ive-prev-target">Target: 12.4 g · Tolleranza ±2%</text>
+            <rect x="0" y="52" width="220" height="4" rx="2" fill="currentColor" opacity="0.2"/>
+            <rect x="0" y="52" width="165" height="4" rx="2" fill="#1C7293" opacity="1"/>
+            <text x="0" y="72">75%</text>
+            <text x="198" y="72" text-anchor="end">VALIDATING...</text>
+          </g>
+        </svg>
+        <div class="device-badge-br">
+          v1.0 · Build 2026.03<br>
+          Preview — schermata illustrativa
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRE MODALITÀ ================= -->
+<section class="modes-section reveal" id="modalita">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="ive-modes-ey">LE TRE MODALITÀ</span>
+      <h2 data-i18n="ive-modes-h2">Un assistente indossabile, <em>tre modi di lavorare.</em></h2>
+    </div>
+
+    <div class="modes-grid">
+      <article class="mode">
+        <div class="mode-tag" data-i18n="ive-m1-tag">01 · Flessibile</div>
+        <h3 data-i18n="ive-m1-h3">Tracciamento</h3>
+        <div class="mode-subtitle" data-i18n="ive-m1-sub">L'operatore conduce.</div>
+        <p data-i18n="ive-m1-p">
+          Il sistema affianca in modo passivo. Non impone una sequenza:
+          segue le necessità reali della preparazione e mantiene la tracciabilità
+          completa del processo. Interazione vocale, mani libere.
+        </p>
+        <ul>
+          <li data-i18n="ive-m1-li1">Cattura automatica di immagini del prodotto</li>
+          <li data-i18n="ive-m1-li2">Confronto con archivio di riferimento</li>
+          <li data-i18n="ive-m1-li3">Comandi vocali: pesa, acquisisci, attiva timer</li>
+          <li data-i18n="ive-m1-li4">Pausa / ripresa con ripristino dello stato</li>
+        </ul>
+      </article>
+
+      <article class="mode">
+        <div class="mode-tag" data-i18n="ive-m2-tag">02 · Modulare</div>
+        <h3 data-i18n="ive-m2-h3">Guida</h3>
+        <div class="mode-subtitle" data-i18n="ive-m2-sub">Il sistema conduce.</div>
+        <p data-i18n="ive-m2-p">
+          Il processo è suddiviso in step predefiniti. Ogni step deve essere completato
+          e validato prima di procedere. Pensato per training e preparazioni ad alto rischio,
+          dove il protocollo non ammette scorciatoie.
+        </p>
+        <ul>
+          <li data-i18n="ive-m2-li1">Training di nuovi operatori tracciabile</li>
+          <li data-i18n="ive-m2-li2">Preparazioni ad alto rischio con requisiti stringenti</li>
+          <li data-i18n="ive-m2-li3">Flussi personalizzati su specifica cliente</li>
+          <li data-i18n="ive-m2-li4">Curva di apprendimento misurabile</li>
+        </ul>
+      </article>
+
+      <article class="mode">
+        <div class="mode-tag" data-i18n="ive-m3-tag">03 · Informativo</div>
+        <h3 data-i18n="ive-m3-h3">Supporto</h3>
+        <div class="mode-subtitle" data-i18n="ive-m3-sub">Fuori cappa, sempre connesso.</div>
+        <p data-i18n="ive-m3-p">
+          Visualizzazione e validazione di azioni negli scenari "mobile" della farmacia:
+          consegna, etichettatura, smistamento, supporto ai sistemi automatizzati.
+          La stessa piattaforma, un contesto diverso.
+        </p>
+        <ul>
+          <li data-i18n="ive-m3-li1">Validazione consegna dei prodotti</li>
+          <li data-i18n="ive-m3-li2">Conferma stampa e applicazione etichette</li>
+          <li data-i18n="ive-m3-li3">Tracciamento flussi tra reparti e magazzino</li>
+          <li data-i18n="ive-m3-li4">Interfaccia per sistemi automatizzati</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PULL QUOTE ================= -->
+<section class="pull-quote reveal">
+  <div class="wrap">
+    <blockquote data-i18n="ive-quote">
+      Tracciabilità completa <em>senza imporre rigidità</em> al flusso di lavoro.
+    </blockquote>
+    <cite data-i18n="ive-quote-cite">— Il principio di ivEyes</cite>
+  </div>
+</section>
+
+<!-- ================= BENEFICI ================= -->
+<section class="section reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="ive-ben-ey">BENEFICI</span>
+      <h2 data-i18n="ive-ben-h2">Cosa cambia <em>per chi governa il processo.</em></h2>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-stat">100%</div>
+        <h4 data-i18n="ive-b1-h4">Tracciabilità di processo</h4>
+        <p data-i18n="ive-b1-p">Ogni step documentato automaticamente: audit trail completo per compliance GMP e AIFA.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-stat">KPI</div>
+        <h4 data-i18n="ive-b2-h4">Dati operativi oggettivi</h4>
+        <p data-i18n="ive-b2-p">Tempi reali per preparazione, tipologia, operatore. Base dati per pianificazione e budget.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-stat">↓</div>
+        <h4 data-i18n="ive-b3-h4">Onboarding più rapido</h4>
+        <p data-i18n="ive-b3-p">Il nuovo operatore è produttivo prima e con meno supervisione, mantenendo la qualità.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-stat">1 → N</div>
+        <h4 data-i18n="ive-b4-h4">Una piattaforma, più processi</h4>
+        <p data-i18n="ive-b4-p">Sotto cappa, training, logistica: un solo investimento per scenari diversi.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-stat">AR</div>
+        <h4 data-i18n="ive-b5-h4">Tecnologia consolidata</h4>
+        <p data-i18n="ive-b5-p">Smart glasses Vuzix: hardware affermato, validato in contesti clinici europei.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-stat">→</div>
+        <h4 data-i18n="ive-b6-h4">Riduzione del rischio</h4>
+        <p data-i18n="ive-b6-p">Validazione automatica degli step critici: meno errori, meno rilavorazioni.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ARCHITETTURA ================= -->
+<section class="arch-block reveal" id="architettura">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="ive-arch-ey">ARCHITETTURA</span>
+      <h2 data-i18n="ive-arch-h2">Integrato col <em>sistema ospedaliero.</em></h2>
+    </div>
+
+    <p style="max-width: 54ch; font-size: 16px; color: var(--ivory-dim); line-height: 1.6;" data-i18n="ive-arch-p">
+      Un PC di gestione orchestra più smart glasses e bilance certificate in parallelo.
+      I dati fluiscono nativamente verso HIS, LIMS e ERP ospedalieri — senza doppie imputazioni,
+      senza esportazioni manuali.
+    </p>
+
+    <div class="arch-diagram">
+      <svg width="100%" viewBox="0 0 900 360" aria-labelledby="arch-title">
+        <title id="arch-title">Architettura di ivEyes</title>
+        <defs>
+          <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+            <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(245,241,234,0.08)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" opacity="1"/>
+
+        <!-- hub centrale -->
+        <g>
+          <rect x="380" y="140" width="140" height="80" fill="#1A2440" stroke="#E8A44C" stroke-width="1" rx="4"/>
+          <text x="450" y="175" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600" fill="#F5F1EA" data-i18n="ive-arch-node-pc">PC DI GESTIONE</text>
+          <text x="450" y="193" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#E8A44C" font-style="italic" data-i18n="ive-arch-node-orch">Orchestratore</text>
+        </g>
+
+        <!-- nodo: smart glasses -->
+        <g>
+          <rect x="60" y="50" width="180" height="80" fill="#10182A" stroke="rgba(245,241,234,0.15)" rx="4"/>
+          <circle cx="100" cy="90" r="20" fill="#1C7293"/>
+          <g transform="translate(86,80)">
+            <ellipse cx="7" cy="10" rx="6" ry="4.5" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+            <circle cx="7" cy="10" r="2" fill="#FFFFFF"/>
+            <ellipse cx="21" cy="10" rx="6" ry="4.5" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+            <circle cx="21" cy="10" r="2" fill="#E8A44C"/>
+          </g>
+          <text x="182" y="86" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600" fill="#F5F1EA" data-i18n="ive-arch-node-gl">Smart Glasses</text>
+          <text x="182" y="102" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#B8B0A0" data-i18n="ive-arch-node-gl2">Vuzix · operatore</text>
+        </g>
+        <line x1="240" y1="90" x2="380" y2="155" stroke="#1C7293" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+        <!-- nodo: bilance -->
+        <g>
+          <rect x="660" y="50" width="180" height="80" fill="#10182A" stroke="rgba(245,241,234,0.15)" rx="4"/>
+          <circle cx="700" cy="90" r="20" fill="#1C7293"/>
+          <g transform="translate(688,78)" stroke="#FFFFFF" stroke-width="1.5" fill="none">
+            <path d="M12 4 v12 M6 10 h12 M8 18 h8 M5 22 h14"/>
+            <circle cx="12" cy="12" r="1.5" fill="#FFFFFF"/>
+          </g>
+          <text x="782" y="79" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600" fill="#F5F1EA" data-i18n="ive-arch-node-sc">Sistemi di</text>
+          <text x="782" y="94" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600" fill="#F5F1EA" data-i18n="ive-arch-node-sc2">pesatura</text>
+          <text x="782" y="110" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#B8B0A0" data-i18n="ive-arch-node-sc3">Bilance certificate</text>
+        </g>
+        <line x1="660" y1="90" x2="520" y2="155" stroke="#1C7293" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+        <!-- nodo: visualizzazione extra -->
+        <g>
+          <rect x="60" y="230" width="180" height="80" fill="#10182A" stroke="rgba(245,241,234,0.15)" rx="4"/>
+          <circle cx="100" cy="270" r="20" fill="#1C7293"/>
+          <g transform="translate(88,258)" stroke="#FFFFFF" stroke-width="1.5" fill="none">
+            <rect x="2" y="4" width="20" height="14" rx="1"/>
+            <line x1="8" y1="22" x2="16" y2="22"/>
+            <line x1="12" y1="18" x2="12" y2="22"/>
+          </g>
+          <text x="182" y="259" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600" fill="#F5F1EA" data-i18n="ive-arch-node-vis">Visualizzazione</text>
+          <text x="182" y="274" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600" fill="#F5F1EA" data-i18n="ive-arch-node-vis2">extra</text>
+          <text x="182" y="290" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#B8B0A0" data-i18n="ive-arch-node-vis3">Monitor · tablet</text>
+        </g>
+        <line x1="240" y1="270" x2="380" y2="205" stroke="#1C7293" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+        <!-- nodo: rete ospedaliera -->
+        <g>
+          <rect x="660" y="230" width="180" height="80" fill="#10182A" stroke="rgba(245,241,234,0.15)" rx="4"/>
+          <circle cx="700" cy="270" r="20" fill="#1C7293"/>
+          <g transform="translate(688,258)" stroke="#FFFFFF" stroke-width="1.5" fill="none">
+            <rect x="4" y="2" width="16" height="20" rx="0.5"/>
+            <line x1="8" y1="6" x2="12" y2="6"/>
+            <line x1="8" y1="10" x2="16" y2="10"/>
+            <line x1="8" y1="14" x2="16" y2="14"/>
+            <line x1="8" y1="18" x2="16" y2="18"/>
+          </g>
+          <text x="782" y="266" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600" fill="#F5F1EA" data-i18n="ive-arch-node-net">Rete ospedaliera</text>
+          <text x="782" y="282" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#B8B0A0">HIS · LIMS · ERP</text>
+        </g>
+        <line x1="660" y1="270" x2="520" y2="205" stroke="#1C7293" stroke-width="1.5" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+
+    <p style="margin-top: 32px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--ivory-dim); text-transform: uppercase;" data-i18n="ive-arch-tag">
+      Scalabile · interoperabile · conforme
+    </p>
+  </div>
+</section>
+
+<!-- ================= CTA FINALE ================= -->
+<section class="prod-cta reveal">
+  <div class="wrap">
+    <h2 data-i18n="ive-cta-h2">Pronto a vedere <em>ivEyes al lavoro?</em></h2>
+    <p data-i18n="ive-cta-p">
+      Ti mostriamo il sistema su uno scenario reale della tua farmacia.
+      Demo on-site o in videoconferenza, entrambe con un farmacista Hexaros a fianco.
+    </p>
+    <a href="contact.html" class="btn btn-primary">
+      <span data-i18n="ive-cta-btn">Prenota una demo</span>
+      <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg width="28" height="32" viewBox="0 0 48 54" aria-hidden="true">
+            <polygon points="24,2 44,14 44,38 24,50 4,38 4,14" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="24" cy="26" r="4.5" fill="#E8A44C"/>
+          </svg>
+          <span>Hexaros</span>
+        </a>
+        <p data-i18n="footer-brand-p">Tecnologie per la digitalizzazione dei processi di farmacia ospedaliera. Con sede a Trieste, Italia.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer-h-azienda">Azienda</h5>
+        <ul>
+          <li><a href="about.html" data-i18n="footer-chisiamo">Chi siamo</a></li>
+          <li><a href="about.html#vision" data-i18n="footer-vision">Vision</a></li>
+          <li><a href="contact.html" data-i18n="footer-contatti">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer-h-prodotti">Prodotti</h5>
+        <ul>
+          <li><a href="iveyes.html">ivEyes</a></li>
+          <li><a href="iveyes.html#modalita" data-i18n="footer-modalita">Modalità</a></li>
+          <li><a href="iveyes.html#architettura" data-i18n="footer-arch">Architettura</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer-h-risorse">Risorse</h5>
+        <ul>
+          <li><a href="#" data-i18n="footer-wp">Whitepaper (PDF)</a></li>
+          <li><a href="#" data-i18n="footer-case">Casi di studio</a></li>
+          <li><a href="#" data-i18n="footer-press">Press kit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer-copy">© <span data-year></span> Hexaros S.r.l. — Tutti i diritti riservati</span>
+      <span>Trieste, Italia · info@hexaros.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

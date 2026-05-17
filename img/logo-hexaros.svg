@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" width="220" height="64">
+  <g transform="translate(8,8)">
+    <polygon points="24,0 44,12 44,36 24,48 4,36 4,12" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="24" cy="24" r="5" fill="#E8A44C"/>
+  </g>
+  <text x="64" y="40" font-family="Georgia, serif" font-size="28" font-weight="700" fill="currentColor" letter-spacing="1">HEXAROS</text>
+</svg>
