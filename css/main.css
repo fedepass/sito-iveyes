@@ -190,7 +190,7 @@ body.light .nav-links a.active { color: var(--coal); }
   letter-spacing: 0.02em;
   transition: transform 180ms var(--ease), background 180ms var(--ease);
 }
-body.dark .nav-cta {
+body.dark .nav-links .nav-cta {
   background: var(--gold);
   color: var(--ink);
 }
