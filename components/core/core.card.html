@@ -1,0 +1,45 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Buttons, Tags & Metrics" subtitle="Core primitives — CTAs, chips, eyebrows, KPIs" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<style> html,body{background:var(--ink);} .stage{padding:30px 32px;display:flex;flex-direction:column;gap:26px;} .grp{display:flex;gap:14px;align-items:center;flex-wrap:wrap;} .div{height:1px;background:var(--rule-dark);} </style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body class="dark">
+<div id="root" class="stage"></div>
+<script type="text/babel">
+  const { Button, Tag, Eyebrow, Metric } = window.HexarosDesignSystem_c7b1f3;
+  function Demo() {
+    return (
+      <>
+        <div className="grp">
+          <Button variant="primary" arrow>Scopri ivEyes</Button>
+          <Button variant="ghost">Conosci l'azienda</Button>
+          <Button variant="primary" size="sm">Richiedi demo</Button>
+          <Button variant="ghost" disabled>Disabilitato</Button>
+        </div>
+        <div className="div"></div>
+        <div className="grp">
+          <Tag tone="teal">Un prodotto Hexaros</Tag>
+          <Tag tone="gold">Primo prodotto · Disponibile</Tag>
+          <Tag tone="muted" dashed>Q3 2026 — In sviluppo</Tag>
+        </div>
+        <Eyebrow rule>Hexaros — Tecnologie per la farmacia</Eyebrow>
+        <div className="div"></div>
+        <div className="grp" style={{gap:'48px'}}>
+          <Metric value="100%" label="Tracciabilità di processo · GMP Annex 11" />
+          <Metric value="1 → N" label="Una piattaforma, più scenari" />
+          <Metric value="AR" label="Smart glasses, mani libere" tone="teal" />
+        </div>
+      </>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

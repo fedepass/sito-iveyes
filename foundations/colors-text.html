@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Ivory Text on Dark" subtitle="Primary and dimmed text + hairline rules" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html,body { background: var(--ink); }
+  .row { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule-dark); padding: 18px; font-family: var(--font-body); }
+  .sw { padding: 20px; min-height: 110px; display:flex; flex-direction:column; gap:8px; justify-content:center; background: var(--ink); }
+  .big { font-family: var(--font-display); font-size: 26px; font-variation-settings: 'SOFT' 30,'opsz' 60; }
+  .tok { font-family: var(--font-mono); font-size: 10.5px; letter-spacing:0.12em; color: var(--accent); }
+  .hex { font-family: var(--font-mono); font-size: 11.5px; color: var(--ivory-dim); }
+  .rules { display:flex; flex-direction:column; gap:14px; justify-content:center; }
+  .rl { height:1px; }
+</style>
+</head>
+<body class="dark">
+  <div class="row">
+    <div class="sw">
+      <span class="big" style="color:var(--ivory)">Ivory — primary</span>
+      <span class="big" style="color:var(--ivory-dim); font-size:18px">Ivory dim — secondary</span>
+      <span class="tok">--ivory · --ivory-dim</span>
+    </div>
+    <div class="sw rules">
+      <div><div class="rl" style="background:var(--rule-dark)"></div><span class="hex" style="display:block;margin-top:5px">--rule-dark · rgba(245,241,234,.12)</span></div>
+      <div><div class="rl" style="background:var(--rule-dark-2)"></div><span class="hex" style="display:block;margin-top:5px">--rule-dark-2 · rgba(245,241,234,.25)</span></div>
+    </div>
+  </div>
+</body>
+</html>

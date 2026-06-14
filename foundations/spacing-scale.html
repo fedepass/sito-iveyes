@@ -1,0 +1,28 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Spacing Scale" subtitle="4px base · gutters, gaps & section rhythm" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html,body { background: var(--ink); }
+  .pad { padding: 26px 32px; display:flex; align-items:flex-end; gap: 14px; font-family: var(--font-mono); }
+  .bar { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .box { background: var(--accent); width: 100%; border-radius: 2px; }
+  .v { font-size: 10px; color: var(--ivory-dim); }
+  .t { font-size: 9px; color: var(--accent); letter-spacing:0.04em; }
+  .bar > div:first-child { width: 22px; }
+</style>
+</head>
+<body class="dark">
+  <div class="pad">
+    <div class="bar"><div class="box" style="height:8px"></div><span class="v">8</span><span class="t">2</span></div>
+    <div class="bar"><div class="box" style="height:16px"></div><span class="v">16</span><span class="t">4</span></div>
+    <div class="bar"><div class="box" style="height:24px"></div><span class="v">24</span><span class="t">6</span></div>
+    <div class="bar"><div class="box" style="height:32px"></div><span class="v">32</span><span class="t">8</span></div>
+    <div class="bar"><div class="box" style="height:48px"></div><span class="v">48</span><span class="t">12</span></div>
+    <div class="bar"><div class="box" style="height:64px"></div><span class="v">64</span><span class="t">16</span></div>
+    <div class="bar"><div class="box" style="height:80px"></div><span class="v">80</span><span class="t">20</span></div>
+  </div>
+</body>
+</html>

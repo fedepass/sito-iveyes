@@ -1,0 +1,28 @@
+<!-- @dsCard group="Brand" viewport="700x180" name="Logos & Marks" subtitle="Hexaros hexagon (company) · ivEyes lenses (product)" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html,body { background: var(--ink); }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule-dark); }
+  .cell { background: var(--ink); padding: 30px 32px; display:flex; flex-direction:column; gap: 18px; align-items:flex-start; min-height: 180px; justify-content:center; color: var(--ivory); }
+  .cell img { height: 40px; width:auto; }
+  .lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing:0.18em; text-transform:uppercase; color: var(--ivory-dim); }
+  .lbl b { color: var(--accent); font-weight:500; }
+</style>
+</head>
+<body class="dark">
+  <div class="grid">
+    <div class="cell">
+      <img src="../assets/logo-hexaros.svg" alt="Hexaros" style="color:var(--ivory)">
+      <span class="lbl"><b>Hexaros</b> · company · hexagon + teal core</span>
+    </div>
+    <div class="cell">
+      <img src="../assets/logo-iveyes.svg" alt="ivEyes" style="color:var(--ivory)">
+      <span class="lbl"><b>ivEyes</b> · product · paired lenses</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+/* =========================================================
+   HEXAROS — SPACING, RADII, SHADOW & MOTION TOKENS
+   ========================================================= */
+
+:root {
+  /* ---- Layout ------------------------------------------ */
+  --wrap-max:      1280px;   /* max content width            */
+  --wrap-pad:      32px;     /* gutter (20px on mobile)      */
+  --section-y:     100px;    /* vertical section rhythm      */
+
+  /* ---- Spacing scale (4px base) ------------------------ */
+  --space-1:       4px;
+  --space-2:       8px;
+  --space-3:       12px;
+  --space-4:       16px;
+  --space-5:       20px;
+  --space-6:       24px;
+  --space-8:       32px;
+  --space-10:      40px;
+  --space-12:      48px;
+  --space-16:      64px;
+  --space-20:      80px;
+  --space-25:      100px;
+
+  /* ---- Radii ------------------------------------------- */
+  --radius-xs:     4px;    /* inputs, mode cards            */
+  --radius-sm:     6px;    /* product cards, form card      */
+  --radius-md:     8px;    /* panels, modals                */
+  --radius-pill:   999px;  /* buttons, chips, lang toggle   */
+
+  /* ---- Borders ----------------------------------------- */
+  --border:        1px;    /* @kind spacing */
+  --border-accent: 3px;    /* @kind spacing */
+
+  /* ---- Shadows (sparse — used on hover/elevation) ------ */
+  --shadow-card:   0 16px 40px rgba(0, 0, 0, 0.3);
+  --shadow-modal:  0 32px 80px rgba(0, 0, 0, 0.6);
+
+  /* ---- Motion ------------------------------------------ */
+  --ease:          cubic-bezier(0.22, 1, 0.36, 1);   /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);    /* @kind other */
+  --dur-fast:      180ms;  /* @kind other */
+  --dur:           200ms;  /* @kind other */
+  --dur-slow:      400ms;  /* @kind other */
+  --dur-rise:      1000ms; /* @kind other */
+}

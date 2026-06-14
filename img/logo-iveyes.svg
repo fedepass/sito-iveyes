@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" width="220" height="64">
-  <g transform="translate(10,20)">
-    <ellipse cx="10" cy="12" rx="9" ry="7" fill="none" stroke="currentColor" stroke-width="2"/>
-    <circle cx="10" cy="12" r="3" fill="currentColor"/>
-    <ellipse cx="28" cy="12" rx="9" ry="7" fill="none" stroke="currentColor" stroke-width="2"/>
-    <circle cx="28" cy="12" r="3" fill="#E8A44C"/>
-  </g>
-  <text x="58" y="40" font-family="'IBM Plex Sans', Calibri, sans-serif" font-size="28" font-weight="300" fill="currentColor">iv<tspan font-weight="700">Eyes</tspan></text>
-</svg>

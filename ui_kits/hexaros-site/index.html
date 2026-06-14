@@ -1,0 +1,93 @@
+<!-- @dsCard group="Hexaros Site" viewport="1280x780" name="Hexaros Website" subtitle="Interactive recreation — Home, Azienda, ivEyes, Contatti" -->
+<!-- @startingPoint section="Screens" subtitle="Full Hexaros marketing site (multi-page, interactive)" viewport="1280x900" -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hexaros — UI Kit</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html, body { background: var(--ink); min-height: 100%; }
+  /* keep the grain + footer above the page flow */
+  .page-flow { position: relative; z-index: 2; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body class="dark">
+<div id="root"></div>
+
+<script type="text/babel" src="screens/HomeScreen.jsx"></script>
+<script type="text/babel" src="screens/AboutScreen.jsx"></script>
+<script type="text/babel" src="screens/IveyesScreen.jsx"></script>
+<script type="text/babel" src="screens/ContactScreen.jsx"></script>
+<script type="text/babel" src="screens/HowWeWorkScreen.jsx"></script>
+<script type="text/babel" src="screens/ComplianceScreen.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+  const { SiteHeader, SiteFooter } = window.HexarosDesignSystem_c7b1f3;
+
+  const HREF_TO_VIEW = {
+    'index.html': 'home', 'about.html': 'about', 'iveyes.html': 'iveyes',
+    'how-we-work.html': 'howwework', 'compliance.html': 'compliance', 'contact.html': 'contact',
+  };
+  const VIEW_TO_HREF = { home: 'index.html', about: 'about.html', iveyes: 'iveyes.html', howwework: 'how-we-work.html', compliance: 'compliance.html', contact: 'contact.html' };
+
+  function App() {
+    const [view, setView] = React.useState('home');
+    const [lang, setLang] = React.useState('it');
+
+    // restore last view
+    React.useEffect(() => {
+      const saved = localStorage.getItem('hx-kit-view');
+      if (saved && VIEW_TO_HREF[saved]) setView(saved);
+    }, []);
+    React.useEffect(() => {
+      localStorage.setItem('hx-kit-view', view);
+      window.scrollTo(0, 0);
+    }, [view]);
+
+    // intercept in-page navigation (nav links + data-nav buttons)
+    function onClick(e) {
+      const navEl = e.target.closest('[data-nav]');
+      if (navEl) { e.preventDefault(); setView(navEl.getAttribute('data-nav')); return; }
+      const a = e.target.closest('a[href]');
+      if (a) {
+        const href = a.getAttribute('href');
+        const file = (href || '').split('#')[0];
+        if (HREF_TO_VIEW[file]) { e.preventDefault(); setView(HREF_TO_VIEW[file]); }
+        else if (href && href.startsWith('#')) { e.preventDefault(); }
+      }
+    }
+
+    const Screen = { home: window.HomeScreen, about: window.AboutScreen, iveyes: window.IveyesScreen, howwework: window.HowWeWorkScreen, compliance: window.ComplianceScreen, contact: window.ContactScreen }[view];
+
+    return (
+      <div onClick={onClick} className="page-flow">
+        <SiteHeader
+          activeHref={VIEW_TO_HREF[view]}
+          lang={lang}
+          onLangToggle={() => setLang(l => l === 'it' ? 'en' : 'it')}
+          links={[
+            { label: 'Home', href: 'index.html' },
+            { label: 'Azienda', href: 'about.html' },
+            { label: 'ivEyes', href: 'iveyes.html' },
+            { label: 'Come lavoriamo', href: 'how-we-work.html' },
+            { label: 'Compliance', href: 'compliance.html' },
+            { label: 'Contatti', href: 'contact.html' },
+          ]}
+        />
+        {Screen ? <Screen /> : null}
+        <SiteFooter />
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

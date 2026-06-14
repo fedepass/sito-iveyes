@@ -1,0 +1,74 @@
+/* =========================================================
+   HEXAROS — COLOR TOKENS
+   Two palettes coexist: DARK (the company / Hexaros) is the
+   default identity; LIGHT (the product / ivEyes) is the
+   clinical counterpart. The clinical teal-blue is the through-line accent.
+   ========================================================= */
+
+:root {
+  /* ---- Dark palette (azienda / company) ---------------- */
+  --ink:           #0A0F1A;   /* deepest background          */
+  --ink-2:         #10182A;   /* raised surface / cards      */
+  --ink-3:         #1A2440;   /* highest surface / wells     */
+  --ivory:         #ECEFF3;   /* cool off-white text on dark */
+  --ivory-dim:     #93A2AF;   /* cool slate secondary text   */
+
+  /* ---- Accent (clinical teal-blue is the system accent) - */
+  --teal:          #1C7293;   /* deep teal · secondary       */
+  --teal-bright:   #34A0C0;   /* clinical accent on dark     */
+  --teal-soft:     #6FC3DE;   /* soft accent / emphasis dark */
+
+  /* legacy company gold — kept for reference only, no longer a UI accent */
+  --gold:          #E8A44C;
+  --gold-soft:     #F4C789;
+
+  /* ---- Rules / hairlines (dark) ------------------------ */
+  --rule-dark:     rgba(245, 241, 234, 0.12);
+  --rule-dark-2:   rgba(245, 241, 234, 0.25);
+
+  /* ---- Light palette (prodotto / clinical) ------------- */
+  --paper:         #F4F7F8;   /* clinical paper background     */
+  --paper-warm:    #EDF2F4;   /* cool raised surface / hover   */
+  --coal:          #16242E;   /* slate-ink text on light       */
+  --coal-soft:     #5B6B77;   /* cool secondary text           */
+  --mute:          #7C8B97;   /* tertiary / captions           */
+  --rule-light:    #DCE4E8;   /* cool hairline on light        */
+  --blue:          #0B6E8C;   /* clinical teal-blue · primary  */
+  --blue-deep:     #08506A;   /* primary hover                 */
+
+  /* ---- Status (clinical validation green) ------------- */
+  --success:       #1E8466;
+  --success-text:  #7ECFA8;
+
+  /* =======================================================
+     SEMANTIC ALIASES — prefer these in component code.
+     Defaults map to the DARK (company) theme.
+     ======================================================= */
+  --bg:            var(--ink);
+  --surface:       var(--ink-2);
+  --surface-2:     var(--ink-3);
+  --text:          var(--ivory);
+  --text-dim:      var(--ivory-dim);
+  --accent:        var(--teal-bright);
+  --accent-soft:   var(--teal-soft);
+  --rule:          var(--rule-dark);
+  --rule-strong:   var(--rule-dark-2);
+  --on-accent:     var(--ink);
+}
+
+/* Light theme scope — apply to <body class="light"> or any
+   container marked [data-theme="light"]. Re-points the
+   semantic aliases at the product palette. */
+body.light,
+[data-theme="light"] {
+  --bg:            var(--paper);
+  --surface:       #FFFFFF;
+  --surface-2:     var(--paper-warm);
+  --text:          var(--coal);
+  --text-dim:      var(--coal-soft);
+  --accent:        var(--blue);
+  --accent-soft:   var(--teal-bright);
+  --rule:          var(--rule-light);
+  --rule-strong:   var(--mute);
+  --on-accent:     var(--paper);
+}

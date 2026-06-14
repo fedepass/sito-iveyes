@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" viewport="700x160" name="Clinical Light Palette" subtitle="Official light theme — cool paper, slate, clinical teal-blue" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html,body { background: var(--paper); }
+  .row { display: grid; grid-template-columns: repeat(6,1fr); gap: 1px; background: var(--rule-light); padding: 14px; font-family: var(--font-body); }
+  .sw { padding: 16px 10px 12px; min-height: 120px; display:flex; flex-direction:column; gap:4px; justify-content:flex-end; background: var(--paper); }
+  .chip { width: 34px; height: 34px; border-radius: 8px; margin-bottom: 8px; border:1px solid var(--rule-light); }
+  .tok { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; color: var(--blue); }
+  .hex { font-family: var(--font-mono); font-size: 10.5px; color: var(--mute); }
+</style>
+</head>
+<body class="light">
+  <div class="row">
+    <div class="sw"><span class="chip" style="background:var(--paper)"></span><span class="tok">--paper</span><span class="hex">#F4F7F8</span></div>
+    <div class="sw"><span class="chip" style="background:var(--paper-warm)"></span><span class="tok">--paper-warm</span><span class="hex">#EDF2F4</span></div>
+    <div class="sw"><span class="chip" style="background:var(--coal)"></span><span class="tok">--coal</span><span class="hex">#16242E</span></div>
+    <div class="sw"><span class="chip" style="background:var(--coal-soft)"></span><span class="tok">--coal-soft</span><span class="hex">#5B6B77</span></div>
+    <div class="sw"><span class="chip" style="background:var(--blue)"></span><span class="tok">--blue</span><span class="hex">#0B6E8C</span></div>
+    <div class="sw"><span class="chip" style="background:var(--success)"></span><span class="tok">--success</span><span class="hex">#1E8466</span></div>
+  </div>
+</body>
+</html>

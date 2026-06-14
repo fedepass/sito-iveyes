@@ -1,0 +1,22 @@
+<!-- @dsCard group="Spacing" viewport="700x170" name="Surface & Grain" subtitle="Fixed film-grain overlay + radial ambient glows" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .demo { position:relative; height: 170px; overflow:hidden;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 0%, rgba(28,114,147,0.20), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 10% 40%, rgba(52,160,192,0.10), transparent 60%),
+      var(--ink); }
+  .demo::after { content:''; position:absolute; inset:0; opacity:0.4; mix-blend-mode:overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.94 0 0 0 0 0.91 0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+  .cap { position:absolute; left:28px; bottom:24px; font-family: var(--font-mono); font-size: 11px; letter-spacing:0.14em; color: var(--ivory-dim); z-index:2; }
+  .cap b { color: var(--accent); font-weight:400; }
+</style>
+</head>
+<body>
+  <div class="demo"><span class="cap"><b>body.dark</b> — teal + gold radial glows · 0.35 grain overlay</span></div>
+</body>
+</html>

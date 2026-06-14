@@ -1,0 +1,25 @@
+<!-- @dsCard group="Spacing" viewport="700x160" name="Radii & Borders" subtitle="From 4px inputs to full pills · hairline rules" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html,body { background: var(--ink); }
+  .pad { padding: 26px 32px; display:flex; align-items:center; gap: 26px; font-family: var(--font-mono); }
+  .item { display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .demo { width: 72px; height: 56px; background: var(--ink-2); border:1px solid var(--rule-dark-2); }
+  .pill { width: 100px; height: 40px; border-radius: 999px; background: var(--accent); }
+  .lbl { font-size: 10px; color: var(--ivory-dim); }
+  .tok { font-size: 9.5px; color: var(--accent); letter-spacing:0.04em; }
+</style>
+</head>
+<body class="dark">
+  <div class="pad">
+    <div class="item"><div class="demo" style="border-radius:4px"></div><span class="tok">--radius-xs</span><span class="lbl">4px</span></div>
+    <div class="item"><div class="demo" style="border-radius:6px"></div><span class="tok">--radius-sm</span><span class="lbl">6px</span></div>
+    <div class="item"><div class="demo" style="border-radius:8px"></div><span class="tok">--radius-md</span><span class="lbl">8px</span></div>
+    <div class="item"><div class="pill"></div><span class="tok">--radius-pill</span><span class="lbl">999px</span></div>
+  </div>
+</body>
+</html>

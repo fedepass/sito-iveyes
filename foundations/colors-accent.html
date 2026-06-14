@@ -1,0 +1,25 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Clinical Accents" subtitle="Teal-blue accent (dark + light), validation green, legacy gold" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html,body { background: var(--ink); }
+  .row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--rule-dark); padding: 18px; font-family: var(--font-body); }
+  .sw { padding: 22px 16px 16px; display: flex; flex-direction: column; gap: 5px; min-height: 110px; justify-content: flex-end; background: var(--ink-2); }
+  .chip { width: 40px; height: 40px; border-radius: 999px; margin-bottom: 8px; }
+  .name { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ivory-dim); }
+  .hex { font-family: var(--font-mono); font-size: 11.5px; color: var(--ivory-dim); }
+  .tok { font-family: var(--font-mono); font-size: 10px; color: var(--teal-bright); }
+</style>
+</head>
+<body class="dark">
+  <div class="row">
+    <div class="sw"><span class="chip" style="background:var(--teal-bright)"></span><span class="tok">--teal-bright</span><span class="name">Accent · dark</span><span class="hex">#34A0C0</span></div>
+    <div class="sw"><span class="chip" style="background:var(--blue)"></span><span class="tok">--blue</span><span class="name">Accent · light</span><span class="hex">#0B6E8C</span></div>
+    <div class="sw"><span class="chip" style="background:var(--success)"></span><span class="tok">--success</span><span class="name">Validation</span><span class="hex">#1E8466</span></div>
+    <div class="sw"><span class="chip" style="background:var(--gold);opacity:0.6"></span><span class="tok" style="color:var(--gold)">--gold</span><span class="name">Legacy mark</span><span class="hex">#E8A44C</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hexaros — Analisi competitor e proposte sito</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html,body { background: var(--bg); color: var(--text); min-height:100%; }
+
+  .wrap { max-width:1100px; margin:0 auto; padding:0 40px; }
+
+  /* header */
+  .doc-header { padding:64px 0 48px; border-bottom:1px solid var(--rule); }
+  .doc-title { font-family:var(--font-display); font-size:clamp(36px,5vw,64px); font-weight:400; line-height:1.05; letter-spacing:-0.03em; color:var(--text); font-variation-settings:'SOFT' 30,'opsz' 144; margin:16px 0 12px; }
+  .doc-title em { font-style:italic; color:var(--accent); font-variation-settings:'SOFT' 100,'opsz' 144; }
+  .doc-meta { font-family:var(--font-mono); font-size:11px; letter-spacing:0.2em; color:var(--text-dim); text-transform:uppercase; }
+
+  /* section */
+  .section { padding:64px 0; border-bottom:1px solid var(--rule); }
+  .sec-label { font-family:var(--font-mono); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+  .sec-h { font-family:var(--font-display); font-size:clamp(28px,3.5vw,42px); font-weight:400; line-height:1.1; letter-spacing:-0.025em; color:var(--text); font-variation-settings:'SOFT' 30,'opsz' 96; margin-bottom:32px; }
+  .sec-h em { color:var(--accent); font-style:italic; font-variation-settings:'SOFT' 100,'opsz' 96; }
+
+  /* competitor grid */
+  .comp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:6px; overflow:hidden; margin-bottom:40px; }
+  .comp-cell { background:var(--surface); padding:32px 28px; }
+  .comp-name { font-family:var(--font-mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; }
+  .comp-name.g2 { color:var(--teal-bright); }
+  .comp-h { font-family:var(--font-display); font-size:22px; font-weight:400; color:var(--text); margin-bottom:10px; font-variation-settings:'SOFT' 30,'opsz' 60; }
+  .comp-p { font-size:14px; line-height:1.6; color:var(--text-dim); }
+  .comp-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .ctag { font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px; border:1px solid; }
+  .ctag.a { color:var(--accent); border-color:color-mix(in srgb,var(--accent) 30%,transparent); background:color-mix(in srgb,var(--accent) 10%,transparent); }
+  .ctag.b { color:var(--teal-bright); border-color:color-mix(in srgb,var(--teal-bright) 30%,transparent); background:color-mix(in srgb,var(--teal-bright) 10%,transparent); }
+
+  /* gap table */
+  .gap-table { width:100%; border-collapse:collapse; font-size:14px; }
+  .gap-table thead th { font-family:var(--font-mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-dim); padding:12px 16px; text-align:left; border-bottom:1px solid var(--rule); }
+  .gap-table tbody td { padding:16px 16px; vertical-align:top; border-bottom:1px solid var(--rule); line-height:1.5; color:var(--text-dim); }
+  .gap-table tbody td:first-child { font-family:var(--font-body); font-weight:600; color:var(--text); width:220px; }
+  .gap-table tbody tr:hover td { background:var(--surface-2); }
+  .pill { display:inline-flex; align-items:center; font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:3px 10px; border-radius:999px; border:1px solid; vertical-align:middle; }
+  .pill.missing { color:#c0392b; border-color:rgba(192,57,43,0.3); background:rgba(192,57,43,0.08); }
+  .pill.weak { color:#d97706; border-color:rgba(217,119,6,0.3); background:rgba(217,119,6,0.08); }
+  .pill.ok { color:var(--success); border-color:color-mix(in srgb,var(--success) 30%,transparent); background:color-mix(in srgb,var(--success) 10%,transparent); }
+
+  /* proposals */
+  .prop-list { display:flex; flex-direction:column; gap:32px; }
+  .prop { background:var(--surface); border:1px solid var(--rule); border-radius:6px; padding:32px 36px; display:grid; grid-template-columns:48px 1fr; gap:24px; }
+  .prop-num { font-family:var(--font-display); font-size:42px; font-weight:300; color:var(--accent); line-height:1; font-variation-settings:'SOFT' 30,'opsz' 144; }
+  .prop-h { font-family:var(--font-display); font-size:22px; font-weight:400; color:var(--text); margin-bottom:10px; font-variation-settings:'SOFT' 30,'opsz' 60; }
+  .prop-h em { color:var(--accent); font-style:italic; font-variation-settings:'SOFT' 100,'opsz' 60; }
+  .prop-p { font-size:14px; line-height:1.65; color:var(--text-dim); max-width:68ch; }
+  .prop-rationale { margin-top:12px; font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; color:var(--accent); }
+  .copy-block { margin-top:20px; background:var(--surface-2); border-left:3px solid var(--accent); padding:20px 24px; border-radius:0 4px 4px 0; }
+  .copy-block .label { font-family:var(--font-mono); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+  .copy-block .copy-h { font-family:var(--font-display); font-size:28px; font-weight:400; color:var(--text); line-height:1.1; font-variation-settings:'SOFT' 30,'opsz' 96; margin-bottom:8px; }
+  .copy-block .copy-h em { color:var(--accent); font-style:italic; font-variation-settings:'SOFT' 100,'opsz' 96; }
+  .copy-block .copy-p { font-size:13.5px; color:var(--text-dim); line-height:1.6; }
+
+  /* priority badges */
+  .badge { display:inline-block; font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin-left:12px; vertical-align:middle; border:1px solid; }
+  .badge.alta { color:var(--success); border-color:color-mix(in srgb,var(--success) 40%,transparent); background:color-mix(in srgb,var(--success) 12%,transparent); }
+  .badge.media { color:var(--accent); border-color:color-mix(in srgb,var(--accent) 40%,transparent); background:color-mix(in srgb,var(--accent) 10%,transparent); }
+  .badge.bassa { color:var(--text-dim); border-color:var(--rule); }
+
+  @media (max-width:700px) { .comp-grid,.prop { grid-template-columns:1fr; } .wrap { padding:0 20px; } }
+</style>
+</head>
+<body class="dark">
+<div class="wrap">
+
+  <!-- header -->
+  <header class="doc-header">
+    <div class="doc-meta">Hexaros · Analisi competitiva · Giugno 2026</div>
+    <h1 class="doc-title">Omnicell e Grifols.<br><em>Cosa ci insegnano.</em></h1>
+    <p style="font-size:17px;line-height:1.6;color:var(--text-dim);max-width:58ch;margin-top:12px;">
+      Entrambi i competitor posizionano il sito come strumento di vendita enterprise B2B su buyer con potere decisionale (direttori farmacia, CFO, IT ospedaliero). Il confronto rivela lacune concrete nel sito Hexaros — e opportunità precise da sfruttare.
+    </p>
+  </header>
+
+  <!-- competitor profiles -->
+  <section class="section">
+    <div class="sec-label">Profili competitor</div>
+    <h2 class="sec-h">Come si posizionano <em>i leader di mercato.</em></h2>
+    <div class="comp-grid">
+      <div class="comp-cell">
+        <div class="comp-name">Omnicell — USA / EU</div>
+        <div class="comp-h">La "farmacia autonoma" come visione.</div>
+        <div class="comp-p">Omnicell vende un <strong style="color:var(--text)">percorso</strong>, non un prodotto. Il sito ruota attorno a tre pilastri (Equipment · Intelligence · Services) con la piattaforma cloud OmniSphere come filo conduttore. Il messaggio centrale è "viaggio verso la farmacia autonoma" — il cliente non compra un armadio, compra una trasformazione. Oltre 100 ospedali mondiali citati come proof.
+        </div>
+        <div class="comp-tags">
+          <span class="ctag a">Journey narrative</span>
+          <span class="ctag a">Platform framing</span>
+          <span class="ctag a">Enterprise scale</span>
+          <span class="ctag a">Video manifesto</span>
+          <span class="ctag a">100+ ospedali</span>
+        </div>
+      </div>
+      <div class="comp-cell">
+        <div class="comp-name g2">Grifols inclusiv® — Spagna / INT</div>
+        <div class="comp-h">Il portfolio completo per la preparazione IV.</div>
+        <div class="comp-p">Grifols si concentra sulle <strong style="color:var(--text)">preparazioni sterili</strong> — esattamente il dominio di ivEyes. La forza è il portfolio integrato: cleanroom modulare + robot KIRO Fill + software PharmacyKeeper + compliance (USP 795/797/800, GMP). Ogni prodotto risponde a un rischio specifico: operatori esposti, errori di dose, audit trail. Il sito è denso di compliance proof.
+        </div>
+        <div class="comp-tags">
+          <span class="ctag b">IV compounding focus</span>
+          <span class="ctag b">Compliance USP/GMP</span>
+          <span class="ctag b">Robot + software</span>
+          <span class="ctag b">Epic integration</span>
+          <span class="ctag b">Risk-based copy</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--text-dim);line-height:1.6;max-width:68ch;">
+      <strong style="color:var(--text)">Differenziatore ivEyes</strong> che né Omnicell né Grifols hanno: un assistente <strong style="color:var(--text)">indossabile, hands-free</strong>, pensato per lavorare <em>sotto la cappa</em> senza interferire con il processo sterile. Il wearable è il vantaggio — ma oggi il sito non lo mostra abbastanza chiaramente a confronto dei competitor.
+    </p>
+  </section>
+
+  <!-- gap analysis -->
+  <section class="section">
+    <div class="sec-label">Analisi gap</div>
+    <h2 class="sec-h">Cosa manca al sito Hexaros <em>oggi.</em></h2>
+    <table class="gap-table">
+      <thead><tr><th>Elemento</th><th>Omnicell</th><th>Grifols</th><th>Hexaros oggi</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Social proof / ospedali</td>
+          <td>100+ ospedali, video case study</td>
+          <td>Hospital Sisters, HIS reali</td>
+          <td><span class="pill missing">Assente</span></td>
+        </tr>
+        <tr>
+          <td>Journey / implementazione</td>
+          <td>Advisory → Adoption → Outcomes (3 pilastri)</td>
+          <td>Design → Build → Operate</td>
+          <td><span class="pill missing">Assente</span></td>
+        </tr>
+        <tr>
+          <td>Caso d'uso per specialità</td>
+          <td>Oncologia, NPT, controlled drugs</td>
+          <td>Hazardous, non-hazardous, batch</td>
+          <td><span class="pill weak">Accennato</span></td>
+        </tr>
+        <tr>
+          <td>Differenziatore vs fisso/desktop</td>
+          <td>n/a (loro sono desktop)</td>
+          <td>n/a (robot fisso)</td>
+          <td><span class="pill weak">Non esplicitato</span></td>
+        </tr>
+        <tr>
+          <td>Integrazioni HIS/LIMS/ERP</td>
+          <td>MedXpert layer, Epic, IT team</td>
+          <td>Epic bidirezionale, HL7/FHIR</td>
+          <td><span class="pill weak">Menzionate</span></td>
+        </tr>
+        <tr>
+          <td>Compliance proof dettagliata</td>
+          <td>Annex 11, HITRUST-certified</td>
+          <td>USP 795/797/800, GMP, ISO 5</td>
+          <td><span class="pill weak">GMP citato</span></td>
+        </tr>
+        <tr>
+          <td>Video / demo preview</td>
+          <td>Video manifesto + product tour</td>
+          <td>Video KIRO Fill robot</td>
+          <td><span class="pill missing">Assente</span></td>
+        </tr>
+        <tr>
+          <td>Risorse scaricabili</td>
+          <td>Whitepaper, infografiche, webinar</td>
+          <td>Brochure PDF, case study</td>
+          <td><span class="pill missing">Assente</span></td>
+        </tr>
+        <tr>
+          <td>ROI / metriche operative</td>
+          <td>Tempi prep, errori ridotti, inventory</td>
+          <td>Throughput, operatore protetto</td>
+          <td><span class="pill weak">Metriche generiche</span></td>
+        </tr>
+        <tr>
+          <td>Struttura nav per buyer</td>
+          <td>Per ruolo (Farmacista, IT, CFO)</td>
+          <td>Per prodotto + per compliance</td>
+          <td><span class="pill ok">In linea</span> ma senza sezione tech</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- proposals -->
+  <section class="section">
+    <div class="sec-label">8 proposte concrete</div>
+    <h2 class="sec-h">Cosa cambiare <em>e come.</em></h2>
+    <div class="prop-list">
+
+      <!-- 1 -->
+      <div class="prop">
+        <div class="prop-num">01</div>
+        <div>
+          <div class="prop-h">Sezione <em>"Il vantaggio wearable"</em> nella home.<span class="badge alta">Priorità alta</span></div>
+          <div class="prop-p">Né Omnicell né Grifols offrono un sistema hands-free sotto la cappa. Questo è il differenziatore assoluto — ma il sito non lo confronta mai esplicitamente. Aggiungere una sezione "Perché indossabile?" con una colonna "sistema fisso / desktop" vs "ivEyes wearable": mani libere, zero touch sul terminale, nessuna contaminazione da tastiera, operatore che lavora senza interrompere il flusso sterile.</div>
+          <div class="prop-rationale">→ Fonte: né Omnicell (cabinet) né Grifols KIRO (robot fisso) possono farlo — è terreno libero.</div>
+          <div class="copy-block">
+            <div class="label">Copy proposto — h2</div>
+            <div class="copy-h">L'unico assistente che <em>lavora con te.</em></div>
+            <div class="copy-p">I sistemi fissi si fermano alla soglia della cappa. ivEyes entra con l'operatore: indossabile, vocale, senza contatto con superfici. Zero touch. Zero interruzione del flusso sterile. Zero rigidità.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="prop">
+        <div class="prop-num">02</div>
+        <div>
+          <div class="prop-h">Strip di <em>social proof / pilota</em> immediatamente dopo l'hero.<span class="badge alta">Priorità alta</span></div>
+          <div class="prop-p">Omnicell apre con "100+ ospedali" — il buyer enterprise vuole sapere subito che il prodotto è già in uso. Anche un solo pilota ospedaliero reale con il nome dell'ente (se permesso) vale più di 10 metriche generiche. Altrimenti: citazione anonimizzata del farmacista pilota, logo istituto sfumato, "In pilota presso 2 farmacie ospedaliere norditaliane — 2026".</div>
+          <div class="prop-rationale">→ Fonte: Omnicell "100+ hospitals globally" ripetuto 4 volte su ogni pagina; Grifols Hospital Sisters case study.</div>
+          <div class="copy-block">
+            <div class="label">Copy proposto — strip sotto hero</div>
+            <div class="copy-h" style="font-size:18px;">"La tracciabilità non rallenta più il processo — <em>lo accompagna.</em>"</div>
+            <div class="copy-p">— Farmacista responsabile, pilota ospedaliero 2026 · Triveneto<br><br>In pilota attivo presso 2 farmacie ospedaliere italiane · Avvio programma partner Q3 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="prop">
+        <div class="prop-num">03</div>
+        <div>
+          <div class="prop-h">Pagina <em>"Come funziona"</em> — il processo di implementazione.<span class="badge alta">Priorità alta</span></div>
+          <div class="prop-p">Omnicell ha un framework a 3 pilastri (Equipment / Intelligence / Services). Grifols ha "Design → Build → Operate". Hexaros non spiega mai come si passa dalla demo alla messa in produzione. Il buyer ospedaliero deve saper rispondere ai propri stakeholder. Proposta: pagina "Come lavoriamo" con 4 step: Valutazione del contesto → Pilota strutturato → Formazione operatori → Supporto continuativo. Ogni step con tempi indicativi.</div>
+          <div class="prop-rationale">→ Fonte: Omnicell professional services (Advisory, Education, Adoption, Integration); Grifols accompagnamento fino a certificazione.</div>
+          <div class="copy-block">
+            <div class="label">Struttura pagina proposta</div>
+            <div class="copy-h" style="font-size:20px;">Dall'interesse all'<em>operatività.</em></div>
+            <div class="copy-p">01 · Valutazione — Analizziamo volumi, tipologie preparazione, sistemi esistenti. 1–2 settimane.<br>02 · Pilota strutturato — Affiancamento su scenari reali, metriche concordate. 4–8 settimane.<br>03 · Formazione — Operatori e responsabili qualità. Tracciata e certificata.<br>04 · Supporto — Aggiornamenti, nuove modalità, integrazione LIMS/HIS. Continuativo.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="prop">
+        <div class="prop-num">04</div>
+        <div>
+          <div class="prop-h">Sezione <em>integrazioni</em> visiva con loghi/badge.<span class="badge media">Priorità media</span></div>
+          <div class="prop-p">Grifols integra con Epic (bidirezionale) e lo mostra esplicitamente. Omnicell ha un intero team IT dedicato e MedXpert come layer unificante. Hexaros menziona HIS/LIMS/ERP nel corpo del testo — ma il buyer IT vuole una griglia visiva dei sistemi supportati. Proposta: una row di badge mono (HIS · LIMS · ERP · HL7/FHIR · REST API · DICOM) con una frase "Ogni HIS italiano validato nel programma pilota".</div>
+          <div class="prop-rationale">→ Fonte: Grifols "bidirectional integration with Epic · HL7/FHIR"; Omnicell "IT experts, 10+ years experience".</div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="prop">
+        <div class="prop-num">05</div>
+        <div>
+          <div class="prop-h"><em>Casi d'uso per specialità</em> — oncologia, NPT, galenici.<span class="badge media">Priorità media</span></div>
+          <div class="prop-p">Grifols distingue hazardous (chemio) da non-hazardous (batch siringhe) — ogni scenario ha un proprio rischio e una propria soluzione. Il sito Hexaros tratta tutte le preparazioni in modo generico. Proposta: 3 card scenario nella pagina ivEyes con focus clinico specifico: Chemioterapia (massima protezione operatore, tracciabilità dose nominale), NPT (pesatura multi-componente, validazione step-by-step), Galenici (guide procedurali, curva apprendimento neoassunti).</div>
+          <div class="prop-rationale">→ Fonte: Grifols hazardous/non-hazardous; Omnicell oncologia e NPT citati come use case chiave.</div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="prop">
+        <div class="prop-num">06</div>
+        <div>
+          <div class="prop-h">Pagina <em>Compliance</em> dedicata — GMP, Annex 11, ISO.<span class="badge media">Priorità media</span></div>
+          <div class="prop-p">Omnicell è HITRUST-certified e lo dice esplicitamente. Grifols lista USP 795/797/800 e GMP su ogni pagina prodotto. Hexaros cita "GMP · Annex 11" nel testo ma non ha una pagina dedicata. Il responsabile qualità dell'ospedale — che spesso è il decisore finale — cerca una risposta precisa: "Come supportate la validazione del sistema? Avete documentazione CSV/CQ? Come gestite l'audit trail in caso di ispezione?"</div>
+          <div class="prop-rationale">→ Fonte: Grifols "USP &lt;795&gt;, &lt;797&gt;, &lt;800&gt;, accompagnamento fino a certificazione finale"; Omnicell "HITRUST-certified, OmniSphere".</div>
+          <div class="copy-block">
+            <div class="label">Titolo pagina proposto</div>
+            <div class="copy-h" style="font-size:22px;">Conformità <em>come fondamento,</em> non come aggiunta.</div>
+            <div class="copy-p">GMP · Annex 11 EU · 21 CFR Part 11 · ISO 13485<br>Audit trail immutabile · Firma elettronica qualificata · CSV documentazione · Convalida IQ/OQ/PQ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="prop">
+        <div class="prop-num">07</div>
+        <div>
+          <div class="prop-h">Metriche operative <em>specifiche</em> — non percentuali generiche.<span class="badge media">Priorità media</span></div>
+          <div class="prop-p">Il sito mostra "100%" e "1→N" — metriche che non ancorano a nessun dato reale. Omnicell cita "tempi di refill", "inventory optimization", "error reduction". Grifols cita "throughput per batch". Proposta: sostituire le metriche generiche con dati del pilota (anche stime conservative o range): "Riduzione del tempo di documentazione per preparazione: stima 3–5 min/prep" · "Audit trail: 100% step registrati senza azione aggiuntiva" · "Onboarding nuovo operatore: -40% supervisione nelle prime 4 settimane (pilota)".</div>
+          <div class="prop-rationale">→ Fonte: entrambi i competitor usano metriche numeriche specifiche come proof point; le percentuali generiche non convincono il buyer enterprise.</div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="prop">
+        <div class="prop-num">08</div>
+        <div>
+          <div class="prop-h">Risorsa scaricabile — <em>whitepaper</em> o scheda tecnica PDF.<span class="badge bassa">Priorità bassa</span></div>
+          <div class="prop-p">Omnicell ha infografiche, webinar, whitepaper. Grifols ha brochure PDF per ogni prodotto. Un buyer ospedaliero che vuole portare la proposta al direttore sanitario ha bisogno di un documento da stampare. Anche una semplice "Scheda tecnica ivEyes" (2 pagine, PDF) con specifiche hardware, compliance, integrazioni, modalità operative, contatti — aumenta la credibilità percepita e facilita il processo di approvazione interno.</div>
+          <div class="prop-rationale">→ Fonte: entrambi i competitor hanno resource center con materiale scaricabile; Grifols brochure PDF disponibili per ogni prodotto.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- priority summary -->
+  <section class="section">
+    <div class="sec-label">Riepilogo priorità</div>
+    <h2 class="sec-h">Per dove <em>iniziare.</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+      <div style="background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:28px 24px;">
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--success);margin-bottom:16px;">Alta priorità — Subito</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-dim);">
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Sezione "vantaggio wearable"</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Strip social proof / pilota</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Pagina "Come lavoriamo"</li>
+        </ul>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:28px 24px;">
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">Media — Entro Q3</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-dim);">
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Griglia integrazioni</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Card scenari per specialità</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Pagina Compliance dedicata</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Metriche operative specifiche</li>
+        </ul>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:28px 24px;">
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px;">Bassa — Con risorse</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-dim);">
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Whitepaper / scheda PDF</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Video manifesto / demo</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent)">→</span>Resource center</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:32px;font-size:14px;color:var(--text-dim);line-height:1.6;max-width:64ch;font-style:italic;">
+      Posso costruire qualsiasi di queste sezioni come prototipo interattivo — dimmi da dove vuoi iniziare e lo implemento direttamente nel UI kit.
+    </p>
+  </section>
+
+  <footer style="padding:48px 0;font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;color:var(--text-dim);text-transform:uppercase;">
+    Hexaros Design System · Analisi competitor · Giugno 2026
+  </footer>
+
+</div>
+</body>
+</html>

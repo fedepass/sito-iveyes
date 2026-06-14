@@ -1,0 +1,51 @@
+/* =========================================================
+   HEXAROS — TYPOGRAPHY TOKENS
+   Fraunces (optical serif) for display & editorial voice.
+   IBM Plex Sans for UI & body. IBM Plex Mono for labels,
+   eyebrows, codes, and the technical register.
+   ========================================================= */
+
+:root {
+  /* ---- Families ---------------------------------------- */
+  --font-display:  'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:     'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:     'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---- Fluid display scale (clamp: min, vw, max) ------- */
+  --fs-hero:       clamp(46px, 8vw, 120px);   /* @kind font */
+  --fs-display:    clamp(40px, 6vw, 88px);    /* @kind font */
+  --fs-h2:         clamp(34px, 4.5vw, 56px);  /* @kind font */
+  --fs-h3:         clamp(26px, 2.6vw, 32px);  /* @kind font */
+  --fs-stat:       clamp(40px, 5vw, 64px);    /* @kind font */
+
+  /* ---- Fixed text scale -------------------------------- */
+  --fs-lede:       18px;     /* @kind font */
+  --fs-body:       16px;     /* @kind font */
+  --fs-body-sm:    14.5px;   /* @kind font */
+  --fs-caption:    13.5px;   /* @kind font */
+  --fs-eyebrow:    11px;     /* @kind font */
+
+  /* ---- Weights ----------------------------------------- */
+  --fw-light:      300;   /* @kind font */
+  --fw-regular:    400;   /* @kind font */
+  --fw-medium:     500;   /* @kind font */
+  --fw-semibold:   600;   /* @kind font */
+  --fw-bold:       700;   /* @kind font */
+
+  /* ---- Line heights ------------------------------------ */
+  --lh-tight:      0.98;   /* @kind font */
+  --lh-snug:       1.1;    /* @kind font */
+  --lh-body:       1.55;   /* @kind font */
+  --lh-relaxed:    1.65;   /* @kind font */
+
+  /* ---- Tracking ---------------------------------------- */
+  --ls-hero:      -0.035em;  /* @kind font */
+  --ls-head:      -0.025em;  /* @kind font */
+  --ls-eyebrow:    0.22em;   /* @kind font */
+
+  /* ---- Fraunces optical / softness presets ------------- */
+  --fraunces-display: 'SOFT' 30, 'opsz' 144;  /* @kind font */
+  --fraunces-title:   'SOFT' 30, 'opsz' 96;   /* @kind font */
+  --fraunces-sm:      'SOFT' 30, 'opsz' 60;   /* @kind font */
+  --fraunces-italic:  'SOFT' 100, 'opsz' 96;  /* @kind font */
+}
