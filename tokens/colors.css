@@ -7,38 +7,40 @@
 
 :root {
   /* ---- Dark palette (azienda / company) ---------------- */
-  --ink:           #0A0F1A;   /* deepest background          */
-  --ink-2:         #10182A;   /* raised surface / cards      */
-  --ink-3:         #1A2440;   /* highest surface / wells     */
-  --ivory:         #ECEFF3;   /* cool off-white text on dark */
-  --ivory-dim:     #93A2AF;   /* cool slate secondary text   */
+  /* Deep pine-slate, not near-black: lighter + green-tinted so
+     dark sections read calmer and more clinical.               */
+  --ink:           #0F1D19;   /* deepest background          */
+  --ink-2:         #16322B;   /* raised surface / cards      */
+  --ink-3:         #20433A;   /* highest surface / wells     */
+  --ivory:         #ECF2EE;   /* off-white text on dark      */
+  --ivory-dim:     #97AAA0;   /* slate-green secondary text  */
 
-  /* ---- Accent (clinical teal-blue is the system accent) - */
-  --teal:          #1C7293;   /* deep teal · secondary       */
-  --teal-bright:   #34A0C0;   /* clinical accent on dark     */
-  --teal-soft:     #6FC3DE;   /* soft accent / emphasis dark */
+  /* ---- Accent (clinical GREEN is the system accent) ----- */
+  --teal:          #1F8466;   /* deep green · secondary      */
+  --teal-bright:   #3FB98C;   /* clinical green accent on dark */
+  --teal-soft:     #84D9B4;   /* soft accent / emphasis dark */
 
   /* legacy company gold — kept for reference only, no longer a UI accent */
   --gold:          #E8A44C;
   --gold-soft:     #F4C789;
 
   /* ---- Rules / hairlines (dark) ------------------------ */
-  --rule-dark:     rgba(245, 241, 234, 0.12);
-  --rule-dark-2:   rgba(245, 241, 234, 0.25);
+  --rule-dark:     rgba(236, 242, 238, 0.13);
+  --rule-dark-2:   rgba(236, 242, 238, 0.26);
 
   /* ---- Light palette (prodotto / clinical) ------------- */
-  --paper:         #F4F7F8;   /* clinical paper background     */
-  --paper-warm:    #EDF2F4;   /* cool raised surface / hover   */
-  --coal:          #16242E;   /* slate-ink text on light       */
-  --coal-soft:     #5B6B77;   /* cool secondary text           */
-  --mute:          #7C8B97;   /* tertiary / captions           */
-  --rule-light:    #DCE4E8;   /* cool hairline on light        */
-  --blue:          #0B6E8C;   /* clinical teal-blue · primary  */
-  --blue-deep:     #08506A;   /* primary hover                 */
+  --paper:         #F1F6F3;   /* clinical paper background      */
+  --paper-warm:    #E7F0EB;   /* raised surface / hover         */
+  --coal:          #13231E;   /* green-slate text on light      */
+  --coal-soft:     #566B62;   /* secondary text                 */
+  --mute:          #7C9089;   /* tertiary / captions            */
+  --rule-light:    #DAE6E0;   /* hairline on light              */
+  --blue:          #0E7A57;   /* clinical green · primary light */
+  --blue-deep:     #0A5E43;   /* primary hover                  */
 
   /* ---- Status (clinical validation green) ------------- */
-  --success:       #1E8466;
-  --success-text:  #7ECFA8;
+  --success:       #2E9E5B;
+  --success-text:  #8FD9A8;
 
   /* =======================================================
      SEMANTIC ALIASES — prefer these in component code.

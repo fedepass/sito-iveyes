@@ -341,7 +341,7 @@ function useTimelineStyles() {
   const css = `
   .hx-tl { display: grid; grid-template-columns: 140px 1fr; gap: 40px; padding: 24px 0;
     border-bottom: 1px solid var(--rule-dark); align-items: baseline; transition: background var(--dur) var(--ease); }
-  .hx-tl:hover { background: rgba(52, 160, 192, 0.03); }
+  .hx-tl:hover { background: rgba(63,185,140, 0.03); }
   .hx-tl__year { font-family: var(--font-display); font-size: 22px; color: var(--accent); font-weight: 400;
     letter-spacing: -0.01em; font-variation-settings: 'SOFT' 30, 'opsz' 60; }
   .hx-tl__main { font-size: 16px; line-height: 1.55; color: var(--ivory); }
@@ -563,8 +563,8 @@ const TONES = {
     color: 'var(--accent)'
   },
   teal: {
-    bg: 'rgba(28,114,147,0.10)',
-    border: 'rgba(28,114,147,0.22)',
+    bg: 'rgba(31,132,102,0.10)',
+    border: 'rgba(31,132,102,0.22)',
     color: 'var(--teal-bright)'
   },
   success: {
@@ -981,7 +981,7 @@ function useHeaderStyles() {
   const css = `
   .hx-header { position: sticky; top: 0; z-index: 50; padding: 20px 0;
     transition: background var(--dur-slow) var(--ease); }
-  body.dark .hx-header, [data-theme="dark"] .hx-header { background: rgba(10,15,26,0.72);
+  body.dark .hx-header, [data-theme="dark"] .hx-header { background: rgba(11,20,17,0.88);
     backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px);
     border-bottom: 1px solid var(--rule-dark); }
   body.light .hx-header, [data-theme="light"] .hx-header { background: rgba(250,250,247,0.82);
@@ -996,9 +996,10 @@ function useHeaderStyles() {
   .hx-navlinks a.is-active::after { content: ''; position: absolute; bottom: 2px; left: 16px; right: 16px;
     height: 1.5px; background: var(--accent); }
   .hx-cta { padding: 10px 18px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600;
-    letter-spacing: 0.02em; transition: transform var(--dur-fast) var(--ease); background: var(--accent); color: var(--on-accent); }
-  body.light .hx-cta, [data-theme="light"] .hx-cta { background: var(--coal); color: var(--paper); }
-  .hx-cta:hover { transform: translateY(-1px); }
+    letter-spacing: 0.02em; transition: transform var(--dur-fast) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease);
+    background: #0B1512; color: #FFFFFF; border: 1px solid var(--accent); }
+  body.light .hx-cta, [data-theme="light"] .hx-cta { background: var(--coal); color: var(--paper); border-color: var(--coal); }
+  .hx-cta:hover { transform: translateY(-1px); background: var(--accent); color: #0B1512; }
   .hx-lang { display: flex; align-items: center; gap: 3px; font-family: var(--font-mono); font-size: 11px;
     font-weight: 500; letter-spacing: 0.12em; padding: 7px 12px; border-radius: var(--radius-pill);
     border: 1px solid var(--rule-dark); color: var(--text-dim); transition: border-color var(--dur-fast) var(--ease); }
@@ -1360,7 +1361,7 @@ function ReqRow({
     cx: "8",
     cy: "8",
     r: "7",
-    fill: "rgba(52,160,192,0.12)",
+    fill: "rgba(63,185,140,0.12)",
     stroke: "var(--teal-bright)",
     strokeWidth: "1.2"
   }), /*#__PURE__*/React.createElement("path", {
@@ -2084,7 +2085,7 @@ function CheckIcon({
     cx: "9",
     cy: "9",
     r: "8",
-    fill: "rgba(52,160,192,0.12)",
+    fill: "rgba(63,185,140,0.12)",
     stroke: "var(--teal-bright)",
     strokeWidth: "1.2"
   }), /*#__PURE__*/React.createElement("path", {
@@ -2177,7 +2178,7 @@ function WearableSection() {
       padding: '18px 20px',
       textAlign: 'center',
       borderLeft: '1px solid var(--rule-dark)',
-      background: highlight ? 'rgba(52,160,192,0.07)' : 'transparent'
+      background: highlight ? 'rgba(63,185,140,0.07)' : 'transparent'
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2223,7 +2224,7 @@ function WearableSection() {
         alignItems: 'center',
         justifyContent: 'center',
         borderLeft: '1px solid var(--rule-dark)',
-        background: ci === 0 ? 'rgba(52,160,192,0.04)' : 'transparent'
+        background: ci === 0 ? 'rgba(63,185,140,0.04)' : 'transparent'
       }
     }, isStr ? /*#__PURE__*/React.createElement("span", {
       style: {
@@ -2381,7 +2382,7 @@ function HomeScreen() {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '56px',
-      background: 'radial-gradient(circle at 30% 40%, rgba(52,160,192,0.18), transparent 50%), radial-gradient(circle at 70% 70%, rgba(28,114,147,0.22), transparent 60%), var(--ink-2)'
+      background: 'radial-gradient(circle at 30% 40%, rgba(63,185,140,0.18), transparent 50%), radial-gradient(circle at 70% 70%, rgba(31,132,102,0.22), transparent 60%), var(--ink-2)'
     }
   }, /*#__PURE__*/React.createElement("svg", {
     width: "220",
@@ -2581,7 +2582,7 @@ function Step({
       top: '60px',
       bottom: 0,
       width: '2px',
-      background: 'linear-gradient(to bottom, var(--accent), rgba(52,160,192,0.06))',
+      background: 'linear-gradient(to bottom, var(--accent), rgba(63,185,140,0.06))',
       zIndex: 0
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -3034,7 +3035,7 @@ function IveyesScreen() {
       justifyContent: 'center',
       overflow: 'hidden',
       color: 'var(--ivory)',
-      background: 'radial-gradient(ellipse at 30% 30%, rgba(28,114,147,0.14), transparent 60%), linear-gradient(135deg, var(--ink-2), var(--ink-3))'
+      background: 'radial-gradient(ellipse at 30% 30%, rgba(31,132,102,0.14), transparent 60%), linear-gradient(135deg, var(--ink-2), var(--ink-3))'
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -3101,37 +3102,37 @@ function IveyesScreen() {
     y: "22",
     width: "36",
     height: "3",
-    fill: "#1C7293"
+    fill: "#1F8466"
   }), /*#__PURE__*/React.createElement("rect", {
     x: "20",
     y: "30",
     width: "28",
     height: "3",
-    fill: "#1C7293",
+    fill: "#1F8466",
     opacity: "0.6"
   }), /*#__PURE__*/React.createElement("circle", {
     cx: "85",
     cy: "38",
     r: "4",
-    fill: "#34A0C0"
+    fill: "#3FB98C"
   }), /*#__PURE__*/React.createElement("rect", {
     x: "130",
     y: "22",
     width: "52",
     height: "3",
-    fill: "#1C7293"
+    fill: "#1F8466"
   }), /*#__PURE__*/React.createElement("rect", {
     x: "130",
     y: "30",
     width: "32",
     height: "3",
-    fill: "#1C7293",
+    fill: "#1F8466",
     opacity: "0.6"
   }), /*#__PURE__*/React.createElement("circle", {
     cx: "195",
     cy: "50",
     r: "4",
-    fill: "#34A0C0"
+    fill: "#3FB98C"
   }))), /*#__PURE__*/React.createElement("g", {
     transform: "translate(20,200)",
     fontFamily: "IBM Plex Mono, monospace",
@@ -3151,7 +3152,7 @@ function IveyesScreen() {
   }), /*#__PURE__*/React.createElement("text", {
     x: "0",
     y: "24",
-    fill: "#34A0C0",
+    fill: "#3FB98C",
     fontWeight: "500",
     opacity: "1"
   }, "Pesa prodotto"), /*#__PURE__*/React.createElement("text", {
@@ -3171,7 +3172,7 @@ function IveyesScreen() {
     width: "165",
     height: "4",
     rx: "2",
-    fill: "#1C7293"
+    fill: "#1F8466"
   }), /*#__PURE__*/React.createElement("text", {
     x: "0",
     y: "72"
@@ -3252,7 +3253,7 @@ function IveyesScreen() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       padding: '10px 20px',
-      background: 'rgba(52,160,192,0.08)',
+      background: 'rgba(63,185,140,0.08)',
       borderBottom: '1px solid var(--rule-dark)',
       display: 'flex',
       alignItems: 'center',
@@ -3351,7 +3352,7 @@ function IveyesScreen() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       padding: '10px 20px',
-      background: 'rgba(52,160,192,0.08)',
+      background: 'rgba(63,185,140,0.08)',
       borderBottom: '1px solid var(--rule-dark)',
       display: 'flex',
       alignItems: 'center',
@@ -3452,7 +3453,7 @@ function IveyesScreen() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       padding: '10px 20px',
-      background: 'rgba(52,160,192,0.08)',
+      background: 'rgba(63,185,140,0.08)',
       borderBottom: '1px solid var(--rule-dark)',
       display: 'flex',
       alignItems: 'center',

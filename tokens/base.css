@@ -31,10 +31,45 @@ body.dark {
   background: var(--ink);
   color: var(--ivory);
   background-image:
-    radial-gradient(ellipse 80% 50% at 70% 0%, rgba(28, 114, 147, 0.14), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 10% 30%, rgba(52, 160, 192, 0.07), transparent 60%);
+    radial-gradient(ellipse 80% 50% at 72% 14%, rgba(31, 132, 102, 0.10), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 10% 34%, rgba(63, 185, 140, 0.06), transparent 60%);
   background-attachment: fixed;
 }
+
+/* ---- Light band -----------------------------------------
+   Drop on any <section>/<div> inside a dark page to flip just
+   that band to the clinical light palette. Works by re-pointing
+   the dark-named tokens the inline styles already consume, so
+   every descendant (text, cards, rules, accent) follows with
+   no per-element edits. */
+.band-light {
+  background: var(--paper);
+  color: var(--coal);
+  /* raw tokens consumed by inline styles */
+  --ink:         #FFFFFF;          /* nested cards read as paper-white */
+  --ink-2:       var(--paper);     /* section / raised surface         */
+  --ink-3:       var(--paper-warm);/* wells / table headers            */
+  --ivory:       var(--coal);      /* primary text                     */
+  --ivory-dim:   var(--coal-soft); /* secondary text                   */
+  --rule-dark:   var(--rule-light);
+  --rule-dark-2: var(--mute);
+  --teal-bright: var(--blue);      /* inline teal-bright refs follow   */
+  --teal:        var(--blue-deep);
+  /* semantic aliases — components (SectionHead, etc.) read these, so
+     they must be re-pointed here too or they stay resolved from :root */
+  --bg:          var(--paper);
+  --surface:     #FFFFFF;
+  --surface-2:   var(--paper-warm);
+  --text:        var(--coal);
+  --text-dim:    var(--coal-soft);
+  --accent:      var(--blue);      /* green primary on light           */
+  --accent-soft: var(--teal-bright);
+  --rule:        var(--rule-light);
+  --rule-strong: var(--mute);
+  --on-accent:   var(--paper);
+}
+/* the fixed grain overlay is light-toned; keep it subtle over
+   light bands so they stay clean */
 
 /* Signature film grain — fixed overlay, overlay blend.
    This texture is core to the Hexaros surface. */

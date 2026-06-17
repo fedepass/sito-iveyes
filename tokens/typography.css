@@ -1,13 +1,13 @@
 /* =========================================================
    HEXAROS — TYPOGRAPHY TOKENS
-   Fraunces (optical serif) for display & editorial voice.
-   IBM Plex Sans for UI & body. IBM Plex Mono for labels,
-   eyebrows, codes, and the technical register.
+   Source Serif 4 (optical serif) for display — sober and
+   institutional. IBM Plex Sans for UI & body. IBM Plex Mono
+   for labels, eyebrows, codes, and the technical register.
    ========================================================= */
 
 :root {
   /* ---- Families ---------------------------------------- */
-  --font-display:  'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-display:  'Source Serif 4', Georgia, 'Times New Roman', serif;
   --font-body:     'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:     'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 

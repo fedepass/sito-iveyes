@@ -37,19 +37,65 @@
   };
   const VIEW_TO_HREF = { home: 'index.html', about: 'about.html', iveyes: 'iveyes.html', howwework: 'how-we-work.html', compliance: 'compliance.html', contact: 'contact.html' };
 
+  // ---- site chrome translations (nav + footer) ----
+  const NAV = {
+    it: [
+      { label: 'Home', href: 'index.html' },
+      { label: 'Azienda', href: 'about.html' },
+      { label: 'ivEyes', href: 'iveyes.html' },
+      { label: 'Come lavoriamo', href: 'how-we-work.html' },
+      { label: 'Compliance', href: 'compliance.html' },
+      { label: 'Contatti', href: 'contact.html' },
+    ],
+    en: [
+      { label: 'Home', href: 'index.html' },
+      { label: 'Company', href: 'about.html' },
+      { label: 'ivEyes', href: 'iveyes.html' },
+      { label: 'How we work', href: 'how-we-work.html' },
+      { label: 'Compliance', href: 'compliance.html' },
+      { label: 'Contact', href: 'contact.html' },
+    ],
+  };
+  const CTA = { it: { label: 'Richiedi demo', href: 'contact.html' }, en: { label: 'Request demo', href: 'contact.html' } };
+  const FOOTER = {
+    it: {
+      description: 'Tecnologie per la digitalizzazione dei processi di farmacia ospedaliera. Con sede a Trieste, Italia.',
+      copyright: `© ${new Date().getFullYear()} Hexaros S.r.l. — Tutti i diritti riservati`,
+      location: 'Trieste, Italia · info@hexaros.com',
+      columns: [
+        { title: 'Azienda', links: [{ label: 'Chi siamo', href: 'about.html' }, { label: 'Vision', href: 'about.html#vision' }, { label: 'Contatti', href: 'contact.html' }] },
+        { title: 'Prodotti', links: [{ label: 'ivEyes', href: 'iveyes.html' }, { label: 'Modalità', href: 'iveyes.html#modalita' }, { label: 'Architettura', href: 'iveyes.html#architettura' }] },
+        { title: 'Risorse', links: [{ label: 'Whitepaper (PDF)', href: '#' }, { label: 'Casi di studio', href: '#' }, { label: 'Press kit', href: '#' }] },
+      ],
+    },
+    en: {
+      description: 'Technology for digitalising hospital pharmacy compounding processes. Based in Trieste, Italy.',
+      copyright: `© ${new Date().getFullYear()} Hexaros S.r.l. — All rights reserved`,
+      location: 'Trieste, Italy · info@hexaros.com',
+      columns: [
+        { title: 'Company', links: [{ label: 'About us', href: 'about.html' }, { label: 'Vision', href: 'about.html#vision' }, { label: 'Contact', href: 'contact.html' }] },
+        { title: 'Products', links: [{ label: 'ivEyes', href: 'iveyes.html' }, { label: 'Modes', href: 'iveyes.html#modalita' }, { label: 'Architecture', href: 'iveyes.html#architettura' }] },
+        { title: 'Resources', links: [{ label: 'Whitepaper (PDF)', href: '#' }, { label: 'Case studies', href: '#' }, { label: 'Press kit', href: '#' }] },
+      ],
+    },
+  };
+
   function App() {
     const [view, setView] = React.useState('home');
     const [lang, setLang] = React.useState('it');
 
-    // restore last view
+    // restore last view + language
     React.useEffect(() => {
       const saved = localStorage.getItem('hx-kit-view');
       if (saved && VIEW_TO_HREF[saved]) setView(saved);
+      const savedLang = localStorage.getItem('hx-kit-lang');
+      if (savedLang === 'it' || savedLang === 'en') setLang(savedLang);
     }, []);
     React.useEffect(() => {
       localStorage.setItem('hx-kit-view', view);
       window.scrollTo(0, 0);
     }, [view]);
+    React.useEffect(() => { localStorage.setItem('hx-kit-lang', lang); }, [lang]);
 
     // intercept in-page navigation (nav links + data-nav buttons)
     function onClick(e) {
@@ -57,10 +103,21 @@
       if (navEl) { e.preventDefault(); setView(navEl.getAttribute('data-nav')); return; }
       const a = e.target.closest('a[href]');
       if (a) {
-        const href = a.getAttribute('href');
-        const file = (href || '').split('#')[0];
-        if (HREF_TO_VIEW[file]) { e.preventDefault(); setView(HREF_TO_VIEW[file]); }
-        else if (href && href.startsWith('#')) { e.preventDefault(); }
+        const href = a.getAttribute('href') || '';
+        const file = href.split('#')[0];
+        const hash = href.split('#')[1];
+        const scrollToId = (id) => {
+          const el = document.getElementById(id);
+          if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({ top: y, behavior: 'smooth' }); }
+        };
+        if (HREF_TO_VIEW[file]) {
+          e.preventDefault();
+          setView(HREF_TO_VIEW[file]);
+          if (hash) setTimeout(() => scrollToId(hash), 80);
+        } else if (href.startsWith('#') && hash) {
+          e.preventDefault();
+          scrollToId(hash);
+        }
       }
     }
 
@@ -72,17 +129,16 @@
           activeHref={VIEW_TO_HREF[view]}
           lang={lang}
           onLangToggle={() => setLang(l => l === 'it' ? 'en' : 'it')}
-          links={[
-            { label: 'Home', href: 'index.html' },
-            { label: 'Azienda', href: 'about.html' },
-            { label: 'ivEyes', href: 'iveyes.html' },
-            { label: 'Come lavoriamo', href: 'how-we-work.html' },
-            { label: 'Compliance', href: 'compliance.html' },
-            { label: 'Contatti', href: 'contact.html' },
-          ]}
+          links={NAV[lang]}
+          cta={CTA[lang]}
         />
-        {Screen ? <Screen /> : null}
-        <SiteFooter />
+        {Screen ? <Screen lang={lang} /> : null}
+        <SiteFooter
+          description={FOOTER[lang].description}
+          columns={FOOTER[lang].columns}
+          copyright={FOOTER[lang].copyright}
+          location={FOOTER[lang].location}
+        />
       </div>
     );
   }
